@@ -7,6 +7,7 @@
   --clrButton: hsl(53, 96%, 65%);
   --serifFont: 'Prata', serif;
   --sansFont: 'Inter', sans-serif;
+  font-family: var(--sansFont);
   font-size: 16px;
 }
 
