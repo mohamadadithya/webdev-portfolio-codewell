@@ -1,0 +1,19 @@
+@mixin respond ($breakpoint) {
+    @if $breakpoint==tablet {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $breakpoint==desktop {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+}
+
+@mixin button() {
+    background-color: var(--clrButton);
+    color: var(--clrPrimary);
+    font-family: var(--serifFont);
+}

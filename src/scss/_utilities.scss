@@ -1,0 +1,31 @@
+@import './mixins';
+
+/* Utility Classes */
+.container {
+    margin: 0 1.5rem;
+
+    @include respond(tablet) {
+        margin: 0 3rem;
+    }
+
+    @include respond(desktop) {
+        margin: 0 6rem;
+    }
+}
+
+.font-serif {
+    font-family: var(--serifFont);
+    font-weight: normal;
+}
+
+.flex {
+    display: flex;
+
+    &.justify-between {
+        justify-content: space-between;
+    }
+
+    &.align-center {
+        align-items: center;
+    }
+}

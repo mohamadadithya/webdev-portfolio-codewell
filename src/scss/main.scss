@@ -1,0 +1,277 @@
+:root {
+    --clrPrimary: hsl(240, 5%, 4%);
+    --clrSecondary: hsl(228, 10%, 20%);
+    --clrTertier: hsl(0, 0%, 60%);
+    --clrWhite: hsl(0, 0%, 100%);
+    --clrButton: hsl(53, 96%, 65%);
+    --serifFont: 'Prata', serif;
+    --sansFont: 'Inter', sans-serif;
+
+    font-size: 16px;
+}
+
+@import './mixins';
+@import './utilities';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+}
+
+a {
+    color: var(--clrWhite);
+}
+
+body {
+    background-color: var(--clrPrimary);
+    color: var(--clrWhite);
+    padding-top: 120px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--clrPrimary);
+
+    .container {
+        @include respond(desktop) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 0;
+    }
+
+    &__links {
+        display: none;
+        margin-bottom: 1rem;
+
+        @include respond(desktop) {
+            margin-bottom: 0;
+        }
+
+        background-color: var(--clrPrimary);
+
+        @include respond(desktop) {
+            display: flex;
+        }
+
+        &.open {
+            display: block;
+        }
+    }
+
+    &__item {
+        margin-right: 2rem;
+
+        &--link {
+            color: var(--clrTertier);
+        }
+    }
+
+    &__hamburger {
+        display: block;
+
+        @include respond(desktop) {
+            display: none;
+        }
+    }
+
+    &__button {
+        display: none;
+        @include button();
+        padding: .8rem 1.4rem;
+        margin-bottom: 2rem;
+
+        @include respond(desktop) {
+            margin-bottom: 0;
+        }
+
+        @include respond(desktop) {
+            display: block;
+        }
+
+        &.open {
+            display: block;
+        }
+    }
+}
+
+.main {
+    margin-bottom: 4rem;
+
+    &__copy {
+        @include respond(desktop) {
+            max-width: 60%;
+        }
+
+        margin-bottom: 5rem;
+
+        &--heading {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+
+            @include respond(tablet) {
+                font-size: 3rem;
+            }
+        }
+
+        &--content {
+            color: var(--clrTertier);
+            margin-bottom: 3.5rem;
+        }
+    }
+
+
+    .row {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include respond(tablet) {
+            grid-template-columns: repeat(3, 1fr);
+
+        }
+
+        @include respond(desktop) {
+            grid-template-columns: repeat(6, 1fr);
+
+        }
+    }
+
+    &__company {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.projects {
+    margin-bottom: 3rem;
+
+    .container {
+        @include respond(desktop) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5rem;
+        }
+    }
+
+    .card {
+        margin-bottom: 3rem;
+
+        &__image {
+            width: 100%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+
+            @include respond(tablet) {
+                max-height: 300px;
+            }
+        }
+
+        &__name {
+            font-size: 2rem;
+            font-family: var(--serifFont);
+            margin-bottom: .8rem;
+            display: block;
+
+            &::after {
+                content: '→';
+                margin-left: 1rem;
+            }
+        }
+
+        &__description {
+            color: var(--clrTertier);
+        }
+    }
+}
+
+.about {
+    background-color: var(--clrSecondary);
+    padding: 4rem 0;
+
+    .container {
+        display: block;
+
+        @include respond(desktop) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6rem;
+        }
+    }
+
+    &__title {
+        font-size: 2.3rem;
+        margin-bottom: 1rem;
+    }
+
+    &__content {
+        color: var(--clrTertier);
+        margin-bottom: 2rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .group {
+        &:nth-child(1) {
+            margin-bottom: 5rem;
+
+            @include respond(desktop) {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.contact {
+    padding: 4rem 0;
+
+    @include respond(desktop) {
+        max-width: 60%;
+    }
+
+    &__title {
+        font-size: 2.3rem;
+        margin-bottom: .8rem;
+    }
+
+    &__content {
+        color: var(--clrTertier);
+        margin-bottom: 1rem;
+    }
+
+    &__button {
+        display: inline-block;
+        @include button();
+        padding: 1rem 2rem;
+    }
+}
+
+.footer {
+    background-color: var(--clrSecondary);
+    padding: 2rem 0;
+
+    &__list {
+        &--item {
+            margin-right: .8rem;
+        }
+    }
+}
